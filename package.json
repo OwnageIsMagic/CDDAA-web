@@ -1,0 +1,21 @@
+{
+  "name": "cdda-android",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www.js",
+    "debug": "node --nocrankshaft --nolazy --nodead_code_elimination --debug-brk=15454 ./bin/www.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-alpha7",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "express-debug": "^1.1.1"
+  }
+}

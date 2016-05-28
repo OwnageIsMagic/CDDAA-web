@@ -1,0 +1,11 @@
+﻿{
+  "version": "2.2.2",
+  "output": "Warning",
+  "options": {
+    "devel": true,
+    "es6": true,
+    "node": true,
+    "white": true
+  },
+  "globalVariables": []
+}
