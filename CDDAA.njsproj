@@ -15,7 +15,7 @@
     <EnableTypeScript>true</EnableTypeScript>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
-    <StartWebBrowser>True</StartWebBrowser>
+    <StartWebBrowser>False</StartWebBrowser>
     <Environment>DEBUG=*</Environment>
     <NodejsPort>8080</NodejsPort>
     <Name>CDDAA</Name>
@@ -24,6 +24,12 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Compile Include="bin\www.js" />
+    <Compile Include="routes\methods\merge.js" />
+    <TypeScriptCompile Include="routes\cddaaApi.ts" />
+    <TypeScriptCompile Include="static\js\JavaScript.ts" />
+    <Content Include="static\css\warship.css" />
+    <Content Include="static\js\jquery-1.10.2.js" />
+    <Content Include="static\js\jquery-1.10.2.intellisense.js" />
     <Content Include="static\css\bootstrap.css" />
     <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
@@ -42,9 +48,11 @@
     <Content Include="views\layout.jade" />
     <Content Include="views\layout2.jade" />
     <Content Include="static\css\style.css" />
+    <Content Include="views\warship.jade" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin" />
+    <Folder Include="routes\methods\" />
     <Folder Include="static\" />
     <Folder Include="static\fonts\" />
     <Folder Include="static\img\" />
@@ -57,8 +65,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="routes\index.ts" />
-    <TypeScriptCompile Include="routes\index2.ts" />
     <TypeScriptCompile Include="routes\users.ts" />
+    <TypeScriptCompile Include="static\js\warship.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -74,7 +82,7 @@
     <TypeScriptOutDir>
     </TypeScriptOutDir>
     <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
-    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>

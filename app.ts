@@ -11,6 +11,7 @@ let app = express();
 
 import routes = require('./routes/index');
 import users = require('./routes/users');
+import cddaaApi = require('./routes/cddaaApi');
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
@@ -18,21 +19,24 @@ app.set('x-powered-by', 'false');
 app.set('view engine', 'pug');
 app.engine('pug', require('pug').__express);
 
-// uncomment after placing your favicon in /public
-app.use('/favicon.ico', favicon(path.join(__dirname, 'static', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'static', 'favicon.ico')));
 app.use(logger('dev'));
 //app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(cookieParser());
+express.static.mime.types['ts'] = 'application/typescript';
 app.use('/static', express.static(path.join(__dirname, 'static'), { fallthrough: false, index: false }));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/CDDAA', cddaaApi);
 
 // catch 404 and forward to error handler
 app.use(function notRoutedHandler (req, res, next) {
     let err = new Error('Not Found');
     err['status'] = 404;
+    console.dir(err);
+    debug(req.url);
     debugger; //HACK
     next(err);
     //res.render('error');
@@ -49,8 +53,10 @@ app.use(function staticNotFound(err: any, req: express.Request, res: express.Res
         res.status(404).end();
         return;
     }
-    debugger; //HACK
-    next();
+    console.dir(err);
+    debug(req.url);
+    //debugger; //HACK
+    next(err);
     //console.log(req.baseUrl.startsWith('/static'));
 });
 // development error handler
@@ -80,7 +86,7 @@ if (app.get('env') === 'development') {
 if (app.get('env') === 'development') {
     //import
     let dbgPanel = require('express-debug');
-    dbgPanel(app, { panels: ['locals', 'request', 'session', 'template', 'software_info', /*'profile',*/'other_requests', 'nav'] });
+    dbgPanel(app, { panels: ['locals', 'request', 'session', 'template', 'software_info', /*'profile','other_requests', 'nav'*/] });
 }
 
 debug('app.ts completed');
