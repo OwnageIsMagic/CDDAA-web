@@ -12,7 +12,7 @@
     "debug": "^2.2.0",
     "express": "^4.13.4",
     "morgan": "^1.7.0",
-    "pug": "^2.0.0-alpha7",
+    "pug": "*",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {

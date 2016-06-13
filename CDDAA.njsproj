@@ -23,28 +23,34 @@
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
-    <Content Include="bin\www.js" />
+    <Compile Include="bin\www.js" />
+    <Content Include="static\css\bootstrap.css" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="static\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="static\js\bootstrap.js" />
     <Content Include="JSLintNet.json" />
     <Content Include="package.json" />
-    <Content Include="public\favicon.ico" />
+    <Content Include="static\favicon.ico" />
     <Content Include="typings.json" />
     <Content Include="views\about.jade" />
     <Content Include="views\contact.jade" />
     <Content Include="views\error.jade" />
-    <Content Include="views\index %282%29.jade" />
     <Content Include="views\index.jade" />
-    <Content Include="views\layout %282%29.jade" />
-    <Content Include="views\layout.pug" />
-    <Content Include="public\stylesheets\style.css" />
+    <Content Include="views\index2.jade" />
+    <Content Include="views\layout.jade" />
+    <Content Include="views\layout2.jade" />
+    <Content Include="static\css\style.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin" />
-    <Folder Include="public" />
-    <Folder Include="public\images" />
-    <Folder Include="public\javascripts" />
-    <Folder Include="public\stylesheets" />
+    <Folder Include="static\" />
+    <Folder Include="static\fonts\" />
+    <Folder Include="static\img\" />
+    <Folder Include="static\js\" />
+    <Folder Include="static\css\" />
     <Folder Include="routes" />
-    <Folder Include="Scripts\" />
     <Folder Include="typings\" />
     <Folder Include="views" />
   </ItemGroup>
@@ -58,7 +64,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptTarget>ES6</TypeScriptTarget>
     <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
@@ -74,6 +80,12 @@
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <!-- PostBuild Step-->
+  <PropertyGroup>
+    <PostBuildEvent>
+      .\postBuild.bat
+    </PostBuildEvent>
+  </PropertyGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
   <ProjectExtensions>
     <VisualStudio>

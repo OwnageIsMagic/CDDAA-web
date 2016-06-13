@@ -1,8 +1,15 @@
 *.js.map
 *.d.ts
-obj/*
-.vs/*
 typings/*
+/*.js
+/routes/*.js
+
+/bin/*
+!/bin/www.js
+
+# VS files
+.vs/*
+obj/*
 
 # Logs
 logs
