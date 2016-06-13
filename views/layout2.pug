@@ -1,0 +1,35 @@
+﻿doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title #{title} - My Express Application
+    link(rel='stylesheet', type='text/css', href='/static/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/style.css')
+    script(src='/static/js/modernizr-2.6.2.js')
+    script(src='/static/js/jquery-1.10.2.js')
+    script(src='/static/js/bootstrap.js')
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Application name
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav
+            li
+              a(href='index') Home
+            li
+              a(href='about') About
+            li
+              a(href='contact') Contact
+    .container.body-content
+      block content
+      hr
+      footer
+        p &copy; #{year} - My Express Application
+
+    block scripts

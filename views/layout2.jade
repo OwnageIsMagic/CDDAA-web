@@ -4,9 +4,11 @@ html
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title #{title} - My Express Application
-    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.min.css')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
-    script(src='/javascripts/modernizr-2.6.2.js')
+    link(rel='stylesheet', type='text/css', href='/static/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='/static/css/style.css')
+    script(src='/static/js/modernizr-2.6.2.js')
+    script(src='/static/js/jquery-1.10.2.js')
+    script(src='/static/js/bootstrap.js')
   body
     .navbar.navbar-inverse.navbar-fixed-top
       .container
@@ -19,19 +21,15 @@ html
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             li
-              a(href='/') Home
+              a(href='index') Home
             li
-              a(href='/about') About
+              a(href='about') About
             li
-              a(href='/contact') Contact
+              a(href='contact') Contact
     .container.body-content
       block content
       hr
       footer
         p &copy; #{year} - My Express Application
-
-    script(src='/javascripts/jquery-1.10.2.js')
-    script(src='/javascripts/bootstrap.js')
-    script(src='/javascripts/respond.js')
 
     block scripts
